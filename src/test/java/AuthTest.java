@@ -10,12 +10,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class AuthTest {
 
-//    @BeforeAll
-//    static void setUp() {
-//        open("http://localhost:9999/");
-//    }
-//
-
 
     @Test
     @DisplayName("Login with active user")
@@ -37,8 +31,6 @@ public class AuthTest {
         $("[data-test-id=password] input").setValue(inactiveUser.getPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка!  Неверно указан логин или пароль")).shouldBe(Condition.visible);
-//        $("[data-test-id=login] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-//        $("[data-test-id=password] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
     }
 
     @Test
@@ -51,8 +43,6 @@ public class AuthTest {
         $("[data-test-id=password] input").setValue(registeredUser.getPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка!  Неверно указан логин или пароль")).shouldBe(Condition.visible);
-//        $("[data-test-id=login] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-//        $("[data-test-id=password] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
     }
 
     @Test
@@ -65,8 +55,6 @@ public class AuthTest {
         $("[data-test-id=password] input").setValue(randomPassword);
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка!  Неверно указан логин или пароль")).shouldBe(Condition.visible);
-//        $("[data-test-id=login] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-//        $("[data-test-id=password] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
     }
 
 
@@ -79,9 +67,5 @@ public class AuthTest {
         $("[data-test-id=password] input").setValue(registeredUser.getPassword());
         $("[data-test-id=action-login]").click();
         $("[data-test-id=error-notification] .notification__content").shouldHave(Condition.exactText("Ошибка! Пользователь заблокирован")).shouldBe(Condition.visible);
-//        $("[data-test-id=login] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
-//        $("[data-test-id=password] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE);
     }
-
-
 }
