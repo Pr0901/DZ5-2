@@ -3,6 +3,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
+import lombok.Data;
 import lombok.Value;
 
 import java.util.Locale;
@@ -17,13 +18,13 @@ public class DataGenerator {
             .setContentType(ContentType.JSON)
             .log(LogDetail.ALL)
             .build();
-    private static final Faker faker = new Faker(new Locale("en"));
+    private static Faker faker = new Faker(new Locale("en"));
 
     private DataGenerator() {
     }
 
     private static void sendRequest(RegistrationDto user) {
-        given() // "дано"
+        given()
                 .spec(requestSpec)
                 .body(user)
                 .when()
@@ -64,5 +65,4 @@ public class DataGenerator {
         String password;
         String status;
     }
-
 }
